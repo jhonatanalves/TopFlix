@@ -18,7 +18,7 @@ public class ConsultaChatGPT {
     public String obterTraducao(String texto) {
 
 
-//        OpenAiService service = new OpenAiService("xyz");
+//        OpenAiService service;
 //
 //        CompletionRequest requisicao = CompletionRequest.builder()
 //                .model("davinci-002")
