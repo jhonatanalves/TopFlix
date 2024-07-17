@@ -17,23 +17,7 @@ public class ConsultaChatGPT {
 
     public String obterTraducao(String texto) {
 
-
-//        OpenAiService service;
-//
-//        CompletionRequest requisicao = CompletionRequest.builder()
-//                .model("davinci-002")
-//                .prompt("traduza para o português o texto: " + texto)
-//                .maxTokens(1000)
-//                .temperature(0.7)
-//                .build();
-//
-//
-//        var resposta = service.createCompletion(requisicao);
-//        return resposta.getChoices().get(0).getText();
-
-        //coneção ao chatgpt via langchain4j
-
-
+        //conexão ao chatgpt via langchain4j
         OpenAiChatModel model = OpenAiChatModel.withApiKey(apiKey);
         return model.generate("traduza para o português o texto: " + texto);
 
