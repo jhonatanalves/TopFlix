@@ -33,7 +33,7 @@ public class ConsultaChatGPT {
 
         //coneção ao chatgpt via langchain4j
 
-        //String apiKey = "demo";
+
         OpenAiChatModel model = OpenAiChatModel.withApiKey(apiKey);
         return model.generate("traduza para o português o texto: " + texto);
 
