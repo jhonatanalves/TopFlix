@@ -49,9 +49,6 @@ public class TopFlixApplication implements CommandLineRunner {
     @Autowired
     private SerieRepository repositorio;
 
-    @Value("${openai.api.key}")
-    private String apiKey;
-
     public static void main(String[] args) {
         SpringApplication.run(TopFlixApplication.class, args);
     }
@@ -59,34 +56,8 @@ public class TopFlixApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Principal principal = new Principal(repositorio,apiKey);
+        Principal principal = new Principal(repositorio);
         principal.exibeMenu();
-
-
-        //  ConsultaGemini g = new ConsultaGemini();
-        //  ConsultaGemini.obterTraducao("teacher");
-
-//        String PROJECT = "langchain4j";
-//        String LOCATION = "us-central1";
-//         String MODEL_NAME = "gemini-pro";
-//
-//        ChatLanguageModel model = VertexAiGeminiChatModel.builder()
-//                .project(PROJECT)
-//                .location(LOCATION)
-//                .modelName(MODEL_NAME)
-//                .build();
-//
-//        String response = model.generate("Tell me a joke");
-//
-//        System.out.println(response);
-
-//        ChatLanguageModel model = VertexAiGeminiChatModel.builder()
-//                .project("langchain4j")
-//                .location("us-central1")
-//                .modelName("gemini-1.5-flash-001")
-//                .build();
-//
-//        System.out.println(model.generate("Why is the sky blue?"));
 
     }
 

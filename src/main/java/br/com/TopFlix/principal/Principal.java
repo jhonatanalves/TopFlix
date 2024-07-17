@@ -28,18 +28,14 @@ public class Principal {
 
     private SerieRepository repositorio;
 
-    private ConsultaChatGPT chatGPT;
 
-
-    public Principal(SerieRepository repositorio,String apiKey) {
+    public Principal(SerieRepository repositorio) {
         this.repositorio = repositorio;
-        this.chatGPT = new ConsultaChatGPT(apiKey);
-
     }
 
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
-        Serie serie = new Serie (dados,chatGPT);
+        Serie serie = new Serie (dados);
         dadosSeries.add(dados);
         repositorio.save(serie);
         System.out.println(dados);
