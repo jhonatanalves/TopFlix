@@ -16,7 +16,7 @@ public class ConsultaChatGPT {
     public static String obterTraducao(String texto) {
 
         //conexão ao chatgpt via langchain4j
-        OpenAiChatModel model = OpenAiChatModel.withApiKey(System.getenv("x"));
+        OpenAiChatModel model = OpenAiChatModel.withApiKey(System.getenv("OPENAI_APIKEY"));
         return model.generate("traduza para o português o texto: " + texto);
 
     }

@@ -1,7 +1,11 @@
 package br.com.TopFlix.repository;
 
+import br.com.TopFlix.model.Categoria;
 import br.com.TopFlix.model.Serie;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 /*
 * o JpaRepository nos fornece uma base pronta para realizar operações CRUD (Create, Read, Update, Delete) no banco de dados.
@@ -28,4 +32,16 @@ Ao estender o JpaRepository, você herda esses métodos e pode usálos diretamen
 * */
 
 public interface SerieRepository extends JpaRepository<Serie, Long> {
+
+    Optional<Serie> findByTituloContainingIgnoreCase(String nomeSerie);
+
+    List<Serie> findByAtoresContainingIgnoreCase(String nomeAtor);
+
+    List<Serie> findByAtoresContainingIgnoreCaseAndAvaliacaoGreaterThanEqual(String nomeAtor, double avaliacao);
+
+    List<Serie> findFirst5ByOrderByAvaliacaoDesc();
+
+    List<Serie> findByGenero(Categoria categoria);
+
+    List<Serie> findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(int totalTemporadas, double avaliacao);
 }
